@@ -1,0 +1,17 @@
+D:\school\Level 8\QuizTime\QuizTime\QuizTime\bin\Debug\QuizTime.exe.config
+D:\school\Level 8\QuizTime\QuizTime\QuizTime\bin\Debug\QuizTime.exe
+D:\school\Level 8\QuizTime\QuizTime\QuizTime\bin\Debug\QuizTime.pdb
+D:\school\Level 8\QuizTime\QuizTime\QuizTime\obj\Debug\QuizTime.csproj.AssemblyReference.cache
+D:\school\Level 8\QuizTime\QuizTime\QuizTime\obj\Debug\aanmaken.g.cs
+D:\school\Level 8\QuizTime\QuizTime\QuizTime\obj\Debug\MainWindow.g.cs
+D:\school\Level 8\QuizTime\QuizTime\QuizTime\obj\Debug\App.g.cs
+D:\school\Level 8\QuizTime\QuizTime\QuizTime\obj\Debug\QuizTime_MarkupCompile.cache
+D:\school\Level 8\QuizTime\QuizTime\QuizTime\obj\Debug\QuizTime_MarkupCompile.lref
+D:\school\Level 8\QuizTime\QuizTime\QuizTime\obj\Debug\aanmaken.baml
+D:\school\Level 8\QuizTime\QuizTime\QuizTime\obj\Debug\MainWindow.baml
+D:\school\Level 8\QuizTime\QuizTime\QuizTime\obj\Debug\QuizTime.g.resources
+D:\school\Level 8\QuizTime\QuizTime\QuizTime\obj\Debug\QuizTime.Properties.Resources.resources
+D:\school\Level 8\QuizTime\QuizTime\QuizTime\obj\Debug\QuizTime.csproj.GenerateResource.cache
+D:\school\Level 8\QuizTime\QuizTime\QuizTime\obj\Debug\QuizTime.csproj.CoreCompileInputs.cache
+D:\school\Level 8\QuizTime\QuizTime\QuizTime\obj\Debug\QuizTime.exe
+D:\school\Level 8\QuizTime\QuizTime\QuizTime\obj\Debug\QuizTime.pdb

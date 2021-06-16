@@ -1,0 +1,22 @@
+﻿<Window x:Class="QuizTime.aanmaken"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuizTime"
+        mc:Ignorable="d"
+        Title="aanmaken" Height="450" Width="800">
+    <Grid Background="#FF1026EF">
+        <TextBox Name="titel" HorizontalAlignment="Left" Height="49" TextWrapping="Wrap" Text="Titel van de vraag" VerticalAlignment="Top" Width="385" Margin="210,30,0,0" FontSize="30"/>
+        <TextBox Name="imgpath" HorizontalAlignment="Left" Height="32" IsReadOnly="True" TextWrapping="Wrap" Text="img/img" VerticalAlignment="Top" Width="231" Margin="208,125,0,0"/>
+        <Button Name="toevoegen" Content="Toevoegen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Margin="462,125,0,0" Height="32"/>
+        <TextBox Name="anta" HorizontalAlignment="Left" Height="45" TextWrapping="Wrap" Text="Antwoord A" VerticalAlignment="Top" Width="125" Margin="261,228,0,0"/>
+        <TextBox Name="antb" HorizontalAlignment="Left" Height="45" TextWrapping="Wrap" Text="Antwoord B" VerticalAlignment="Top" Width="125" Margin="261,287,0,0"/>
+        <TextBox Name="antc" HorizontalAlignment="Left" Height="45" TextWrapping="Wrap" Text="Antwoord C" VerticalAlignment="Top" Width="125" Margin="404,228,0,0"/>
+        <TextBox Name="antd" HorizontalAlignment="Left" Height="45" TextWrapping="Wrap" Text="Antwoord D" VerticalAlignment="Top" Width="125" Margin="404,287,0,0"/>
+        <Label Content="Stel de tijd in: " Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="639,9,0,0"/>
+        <TextBox Name="minuten" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Min" VerticalAlignment="Top" Width="29" Margin="723,13,0,0"/>
+        <TextBox Name="seconden" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Sec" VerticalAlignment="Top" Width="29" Margin="757,13,0,0"/>
+
+    </Grid>
+</Window>
