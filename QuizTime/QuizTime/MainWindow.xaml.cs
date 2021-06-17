@@ -24,12 +24,23 @@ namespace QuizTime
         {
             InitializeComponent();
             maken.Click += new RoutedEventHandler(Maken_Click);
+            begin.Click += new RoutedEventHandler(spelen_Click);
         }
 
         private void Maken_Click(object sender, RoutedEventArgs e)
         {
             aanmaken game = new aanmaken();
             game.Show();
+            this.Close();
+        }
+
+        private void spelen_Click(object sender, RoutedEventArgs e)
+        {
+            spelen game = new spelen();
+            spelenbedienen bediening = new spelenbedienen();
+            
+            game.Show();
+            bediening.Show();
             this.Close();
         }
     }

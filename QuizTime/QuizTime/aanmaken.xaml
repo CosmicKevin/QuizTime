@@ -17,6 +17,8 @@
         <Label Content="Stel de tijd in: " Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="639,9,0,0"/>
         <TextBox Name="minuten" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Min" VerticalAlignment="Top" Width="29" Margin="723,13,0,0"/>
         <TextBox Name="seconden" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Sec" VerticalAlignment="Top" Width="29" Margin="757,13,0,0"/>
+        <Button Name="volgende" Content="Volgende" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="697,253,0,0"/>
+        <Button Name="aflsuiten" Content="Afsluiten" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="697,275,0,0"/>
 
     </Grid>
 </Window>

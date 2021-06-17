@@ -6,10 +6,13 @@
         xmlns:local="clr-namespace:QuizTime"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Name="maken" Content="Quiz maken" HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Margin="330,110,0,0" Height="46"/>
-        <Button Name="verwijderen" Content="Quiz verwijderen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Margin="330,160,0,0" Height="46"/>
-        <Button Name="nakijken" Content="Quiz nakijken" HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Margin="330,210,0,0" Height="46"/>
-        <Button Name="selecteren" Content="Quiz selecteren" HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Margin="330,260,0,0" Height="46"/>
-    </Grid>
+  <Grid Background="LightGray">
+    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="41" Stroke="Black" VerticalAlignment="Top" Width="539" Margin="47,66,0,0"/>
+    <Button Name="maken" Content="Quiz maken" HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Margin="632,137,0,0" Height="46"/>
+    <Button Name="verwijderen" Content="Verwijderen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="474,74,0,0" Height="25"/>
+    <Button Name="nakijken" Content="Nakijken" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="364,74,0,0" Height="25"/>
+    <Label Content="Quiz 1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="170" Height="25" Margin="64,74,0,0"/>
+    <Button Name="begin" Content="Spelen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="25" Margin="254,74,0,0"/>
+
+  </Grid>
 </Window>
