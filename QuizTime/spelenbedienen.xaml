@@ -1,0 +1,16 @@
+﻿<Window x:Class="QuizTime.spelenbedienen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuizTime"
+        mc:Ignorable="d"
+        Title="spelenbedienen" Height="1080" Width="1920" WindowStartupLocation="Manual">
+    <Grid Background="Gray">
+        <Button Content="Volgende vraag" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="796,0,831,602" Height="70"/>
+        <Button Content="Vorige vraag" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="796,100,831,536" Height="70"/>
+        <Button Content="Aflsuiten" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="796,200,831,471" Height="70"/>
+        <Button Content="Nakijken" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="796,300,831,406" Height="70"/>
+
+    </Grid>
+</Window>
