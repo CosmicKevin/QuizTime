@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace QuizTime
 {
@@ -99,6 +100,28 @@ namespace QuizTime
         {
             string SQL = string.Format("SELECT * WHERE QuizID = {0}", QuizID);
             DataTable datatable = sql.GetDataTable(SQL);
+        }
+        public void Update()
+        {
+
+        }
+        public bool Delete(Int32 QuizID)
+        {
+            bool isDeleted = false;
+            if (MessageBox.Show("Wilt u deze quiz verwijderen?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
+            {
+                string SQL = string.Format("DELETE FROM * WHERE Quiz_ID = {0}", QuizID);
+                sql.ExecuteNonQuery(SQL);
+                isDeleted = true;
+
+                MessageBox.Show("De quiz is succesvol verwijderd");
+            }
+            else
+            {
+                MessageBox.Show("de quiz is niet verwijderd");
+            }
+
+            return isDeleted;
         }
     }
 }

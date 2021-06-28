@@ -104,13 +104,13 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="database.cs" />
+    <Compile Include="quiz.cs" />
     <Compile Include="spelen.xaml.cs">
       <DependentUpon>spelen.xaml</DependentUpon>
     </Compile>
     <Compile Include="spelenbedienen.xaml.cs">
       <DependentUpon>spelenbedienen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="vragen.cs" />
     <Page Include="aanmaken.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
