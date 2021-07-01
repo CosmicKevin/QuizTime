@@ -19,10 +19,43 @@ namespace QuizTime
     /// </summary>
     public partial class aanmaken : Window
     {
-        database db = new database();
+        quiz quiz = new quiz();
         public aanmaken()
         {
             InitializeComponent();
+            Next.Content = "Aanmaken";
+
+            Next.Click += Next_Click;
+            Cancel.Click += Cancel_Click;
+        }
+
+        public aanmaken(Int32 Quiz_ID)
+        {
+            InitializeComponent();
+            quiz.Read(Quiz_ID);
+
+            Quiz_ID = quiz.Quiz_ID;
+            titelvdvraag.Text = quiz.Vraag;
+            imgpath.Text = quiz.image;
+            anta.Text = quiz.AntwoordA;
+            antb.Text = quiz.AntwoordB;
+            antc.Text = quiz.AntwoordC;
+            antd.Text = quiz.AntwoordD;
+            seconden.Text = quiz.Timer.ToString();
+            quiznaam.Text = quiz.QuizNaam;
+
+            Next.Click += Next_Click;
+            Cancel.Click += Cancel_Click;
+        }
+
+        private void Next_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Cancel_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

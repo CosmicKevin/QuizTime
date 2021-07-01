@@ -11,11 +11,11 @@ namespace QuizTime
     class quiz
     {
         private Int32 _Quiz_ID;
-        private string _naamquiz;
+        private string _QuizNaam;
         private Int32 _hoeveelheidvragen;
 
         private string _Image;
-        private Int32 _Vraag;
+        private string _Vraag;
         private string _AntwoordA;
         private string _AntwoordB;
         private string _AntwoordC;
@@ -23,15 +23,15 @@ namespace QuizTime
         private string _GoedAntwoord;
         private Int32 _Timer;
 
-        public Int32 QuizID
+        public Int32 Quiz_ID
         {
             get { return _Quiz_ID; }
             set { _Quiz_ID = value; }
         }
-        public string naamquiz
+        public string QuizNaam
         {
-            get { return _naamquiz; }
-            set { _naamquiz = value; }
+            get { return _QuizNaam; }
+            set { _QuizNaam = value; }
         }
         public Int32 hoeveelvragen
         {
@@ -44,7 +44,7 @@ namespace QuizTime
             get { return _Image; }
             set { _Image = value; }
         }
-        public Int32 Vraag
+        public string Vraag
         {
             get { return _Vraag; }
             set { _Vraag = value; }
@@ -84,33 +84,63 @@ namespace QuizTime
 
         public DataSet GetData()
         {
-            string SQL = "SELECT * FROM quiztime";
+            string SQL = "SELECT * FROM quiztime.vraag";
 
             return sql.GetDataSet(SQL);
         }
 
-        public void Create(string titelvdvraag, string Image, string AntwoordA, string AntwoordB, string AntwoordC, string AntwoordD, string GoedAntwoord, string Timer)
+        public void Create(string titelvdvraag, string Image, string AntwoordA, string AntwoordB, string AntwoordC, string AntwoordD, string GoedAntwoord, string Timer, string QuizNaam)
         {
-            string SQL = string.Format("INSERT INTO quiztime.vraag (Vraag, Image, AntwoordA, AntwoordB, AntwoordC, AntwoordD, GoedAntwoord, Timer) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
-                         titelvdvraag, Image, AntwoordA, AntwoordB, AntwoordC, AntwoordD, GoedAntwoord, Timer);
+            string SQL = string.Format("INSERT INTO quiztime.vraag (Vraag, Image, AntwoordA, AntwoordB, AntwoordC, AntwoordD, GoedAntwoord, Timer, QuizNaam) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')",
+                         titelvdvraag, Image, AntwoordA, AntwoordB, AntwoordC, AntwoordD, GoedAntwoord, Timer, QuizNaam);
 
             sql.ExecuteNonQuery(SQL);
         }
-        public void Read(Int32 QuizID)
+        public void Read(Int32 Quiz_ID)
         {
-            string SQL = string.Format("SELECT * WHERE QuizID = {0}", QuizID);
+            string SQL = string.Format("SELECT * FROM vraag WHERE Quiz_ID = {0}", Quiz_ID);
             DataTable datatable = sql.GetDataTable(SQL);
+            _Quiz_ID = Convert.ToInt32(datatable.Rows[0]["Quiz_ID"].ToString());
+            _Vraag = datatable.Rows[0]["Vraag"].ToString();
+            _Image = datatable.Rows[0]["Image"].ToString();
+            _AntwoordA = datatable.Rows[0]["AntwoordA"].ToString();
+            _AntwoordB = datatable.Rows[0]["AntwoordB"].ToString();
+            _AntwoordC = datatable.Rows[0]["AntwoordC"].ToString();
+            _AntwoordD = datatable.Rows[0]["AntwoordD"].ToString();
+            _GoedAntwoord = datatable.Rows[0]["GoedAntwoord"].ToString();
+            _Timer = Convert.ToInt32(datatable.Rows[0]["Timer"].ToString());
+            _QuizNaam = datatable.Rows[0]["QuizNaam"].ToString();
         }
-        public void Update()
+        public void Update(Int32 Quiz_ID, string titelvdvraag, string Image, string AntwoordA, string AntwoordB, string AntwoordC, string AntwoordD, string GoedAntwoord, string Timer, string QuizNaam)
         {
-
+            string SQL = string.Format("UPDATE quiztime.vraag " +
+                                        "Set Vraag          = '{0}', " +
+                                        "Image              = '{1}', " +
+                                        "AntwoordA          = '{2}', " +
+                                        "AntwoordB          = '{3}', " +
+                                        "AntwoordC          = '{4}', " +
+                                        "AntwoordD          = '{5}', " +
+                                        "GoedAntwoord       = '{6}', " +
+                                        "Timer              = '{7}', " +
+                                        "QuizNaam           = '{8}', " +
+                                        "WHERE QuizID       = '{9}'", titelvdvraag,
+                                                                      Image,
+                                                                      AntwoordA,
+                                                                      AntwoordB,
+                                                                      AntwoordC,
+                                                                      AntwoordD,
+                                                                      GoedAntwoord,
+                                                                      Timer,
+                                                                      QuizNaam,
+                                                                      Quiz_ID);
+            sql.ExecuteNonQuery(SQL);
         }
-        public bool Delete(Int32 QuizID)
+        public bool Delete(Int32 Quiz_ID)
         {
             bool isDeleted = false;
             if (MessageBox.Show("Wilt u deze quiz verwijderen?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
-                string SQL = string.Format("DELETE FROM * WHERE Quiz_ID = {0}", QuizID);
+                string SQL = string.Format("DELETE FROM quiztime.vraag WHERE Quiz_ID = {0}", Quiz_ID);
                 sql.ExecuteNonQuery(SQL);
                 isDeleted = true;
 

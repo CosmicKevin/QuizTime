@@ -5,14 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuizTime"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-  <Grid Background="Gray">
-    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="41" Stroke="Black" VerticalAlignment="Top" Width="539" Margin="47,66,0,0"/>
-    <Button Name="maken" Content="Quiz maken" HorizontalAlignment="Left" VerticalAlignment="Top" Width="151" Margin="632,137,0,0" Height="46"/>
-    <Button Name="verwijderen" Content="Verwijderen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="474,74,0,0" Height="25"/>
-    <Button Name="nakijken" Content="Nakijken" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="364,74,0,0" Height="25"/>
-    <Label Content="Quiz 1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="170" Height="25" Margin="64,74,0,0"/>
-    <Button Name="begin" Content="Spelen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Height="25" Margin="254,74,0,0"/>
+        Title="MainWindow" Height="630" Width="1300">
+    <Grid Background="Gray" Height="700" Width="1400">
+        <TextBlock Height="32" HorizontalAlignment="Left" Margin="16, 15, 0, 0" Name="textBlockHeading" Text="Quizes" VerticalAlignment="Top"></TextBlock>
+        <Grid HorizontalAlignment="Left" Height="585" VerticalAlignment="Top" Width="1270">
+            <DataGrid Name="dgQuizes" AutoGenerateColumns="False" HorizontalAlignment="Left" HorizontalScrollBarVisibility="Disabled"
+                      Margin="14, 55, 0, 46" Width="1350" ItemsSource="{Binding Path=LoadDataBinding}" CanUserResizeRows="False" CanUserAddRows="False">
 
-  </Grid>
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding Path=Quiz_ID}" Header="Quiz" Width="50" IsReadOnly="True" />
+                    <DataGridTextColumn Binding="{Binding Path=QuizNaam}" Header="Naam" Width="250" IsReadOnly="True" />
+
+                    <DataGridTemplateColumn Width="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Spelen" Click="btnPlay_Click"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Width="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Edit" Click="btnEdit_Click"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                    <DataGridTemplateColumn Width="50">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Delete" Click="btnDelete_Click"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <Button Name="btnAdd" Content="Toevoegen" HorizontalAlignment="Left" Margin="1195, 554, 0, 0" VerticalAlignment="Top" Width="75"/>
+        </Grid>
+    </Grid>
 </Window>

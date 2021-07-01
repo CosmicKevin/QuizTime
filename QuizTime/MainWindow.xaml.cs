@@ -21,21 +21,61 @@ namespace QuizTime
     /// </summary>
     public partial class MainWindow : Window
     {
+        quiz quiz = new quiz();
         public MainWindow()
         {
             InitializeComponent();
-            maken.Click += new RoutedEventHandler(Maken_Click);
-            begin.Click += new RoutedEventHandler(spelen_Click);
+
+            dgQuizes.DataContext = quiz.GetData();
+
+            btnAdd.Click += BtnAdd_Click;
         }
 
-        private void Maken_Click(object sender, RoutedEventArgs e)
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-            aanmaken game = new aanmaken();
-            game.Show();
+            aanmaken window = new aanmaken();
+            window.Show();
             this.Close();
         }
 
-        private void spelen_Click(object sender, RoutedEventArgs e)
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                object item = dgQuizes.SelectedItem;
+                int Quiz_ID = int.Parse((dgQuizes.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
+
+                aanmaken window = new aanmaken(Quiz_ID);
+                window.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                object item = dgQuizes.SelectedItem;
+                int Quiz_ID = int.Parse((dgQuizes.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
+
+                if (quiz.Delete(Quiz_ID) == true)
+                {
+                    dgQuizes.DataContext = quiz.GetData();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
             spelen game = new spelen();
             spelenbedienen bediening = new spelenbedienen();
