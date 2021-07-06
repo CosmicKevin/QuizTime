@@ -77,15 +77,12 @@ namespace QuizTime
 
         private void btnPlay_Click(object sender, RoutedEventArgs e)
         {
-            spelen game = new spelen();
-            spelenbedienen bediening = new spelenbedienen();
-            Screen s1 = Screen.AllScreens[1];
-            System.Drawing.Rectangle r1 = s1.WorkingArea;
-            game.Top = r1.Top;
-            game.Left = r1.Left;
+            object item = dgQuizes.SelectedItem;
+            int Quiz_ID = int.Parse((dgQuizes.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
 
-            game.Show();
-            bediening.Show();
+            spelenbedienen window = new spelenbedienen(Quiz_ID);
+
+            window.Show();
             this.Close();
         }
     }

@@ -19,9 +19,20 @@ namespace QuizTime
     /// </summary>
     public partial class spelen : Window
     {
-        public spelen()
+        quiz quiz = new quiz();
+        public spelen(Int32 Quiz_ID)
         {
             InitializeComponent();
+
+            quiz.Read(Quiz_ID);
+
+            Quiz_ID = quiz.Quiz_ID;
+            anta.Text = quiz.AntwoordA;
+            antb.Text = quiz.AntwoordB;
+            antc.Text = quiz.AntwoordC;
+            antd.Text = quiz.AntwoordD;
+            titel.Text = quiz.Vraag;
+            tijd.Content = quiz.Timer;
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -19,9 +20,28 @@ namespace QuizTime
     /// </summary>
     public partial class spelenbedienen : Window
     {
-        public spelenbedienen()
+        private spelen game;
+        private MainWindow window;
+        public spelenbedienen(int Quiz_ID)
         {
             InitializeComponent();
+            game = new spelen(Quiz_ID);
+
+            Screen s1 = Screen.AllScreens[0];
+            System.Drawing.Rectangle r1 = s1.WorkingArea;
+            game.Top = r1.Top;
+            game.Left = r1.Left;
+
+            game.Show();
+            Aflsuiten.Click += Aflsuiten_Click;
+        }
+
+        private void Aflsuiten_Click(object sender, RoutedEventArgs e)
+        {
+            window = new MainWindow();
+            window.Show();
+            game.Close();
+            this.Close();
         }
     }
 }

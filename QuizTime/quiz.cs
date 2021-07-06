@@ -28,6 +28,7 @@ namespace QuizTime
             get { return _Quiz_ID; }
             set { _Quiz_ID = value; }
         }
+
         public string QuizNaam
         {
             get { return _QuizNaam; }
@@ -84,21 +85,23 @@ namespace QuizTime
 
         public DataSet GetData()
         {
-            string SQL = "SELECT * FROM quiztime.vraag";
+            string SQL = "SELECT * FROM quiztime.quiz";
 
             return sql.GetDataSet(SQL);
         }
 
         public void Create(string titelvdvraag, string Image, string AntwoordA, string AntwoordB, string AntwoordC, string AntwoordD, string GoedAntwoord, string Timer, string QuizNaam)
         {
-            string SQL = string.Format("INSERT INTO quiztime.vraag (Vraag, Image, AntwoordA, AntwoordB, AntwoordC, AntwoordD, GoedAntwoord, Timer, QuizNaam) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')",
-                         titelvdvraag, Image, AntwoordA, AntwoordB, AntwoordC, AntwoordD, GoedAntwoord, Timer, QuizNaam);
+            string SQL = string.Format("INSERT INTO quiztime.vraag (Vraag, Image, AntwoordA, AntwoordB, AntwoordC, AntwoordD, GoedAntwoord, Timer) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
+                         titelvdvraag, Image, AntwoordA, AntwoordB, AntwoordC, AntwoordD, GoedAntwoord, Timer);
 
+            string SQLQ = string.Format("INSERT INTO quiztime.quiz (quiznaam) VALUES ('{0}')", QuizNaam);
             sql.ExecuteNonQuery(SQL);
+            sql.ExecuteNonQuery(SQLQ);
         }
         public void Read(Int32 Quiz_ID)
         {
-            string SQL = string.Format("SELECT * FROM vraag WHERE Quiz_ID = {0}", Quiz_ID);
+            string SQL = string.Format("SELECT vraag.Vraag, vraag.Image, vraag.AntwoordA, vraag.AntwoordB, vraag.AntwoordC, vraag.AntwoordD, vraag.GoedAntwoord, vraag.Timer, vraag.Quiz_ID, quiz.QuizNaam FROM vraag INNER JOIN quiz ON vraag.Quiz_ID = quiz.ID WHERE Quiz_ID = {0}", Quiz_ID);
             DataTable datatable = sql.GetDataTable(SQL);
             _Quiz_ID = Convert.ToInt32(datatable.Rows[0]["Quiz_ID"].ToString());
             _Vraag = datatable.Rows[0]["Vraag"].ToString();

@@ -16,6 +16,6 @@
         <TextBlock x:Name="titel" HorizontalAlignment="Center" TextAlignment="Center" Height="143" Foreground="White" TextWrapping="Wrap" Text="Titel van de vraag" VerticalAlignment="Top" Width="510" FontSize="58" Margin="0,0,0,0"/>
         <Image HorizontalAlignment="Center" Height="163" VerticalAlignment="Center" Width="224"/>
         <Label Content="Stel de tijd in: " Margin="0,0,152.6,0" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top" Height="126" Width="258" FontSize="38"/>
-        <Label Content="0:30" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="163" Height="126" Margin="0,0,-0.4,0" FontSize="38"/>
+        <Label Name="tijd" Content="0:30" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="163" Height="126" Margin="0,0,-0.4,0" FontSize="38"/>
     </Grid>
 </Window>

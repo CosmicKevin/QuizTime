@@ -7,10 +7,10 @@
         mc:Ignorable="d"
         Title="spelenbedienen" Height="1080" Width="1920" WindowStartupLocation="Manual">
     <Grid Background="Gray">
-        <Button Content="Volgende vraag" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="796,0,831,602" Height="70"/>
-        <Button Content="Vorige vraag" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="796,100,831,536" Height="70"/>
-        <Button Content="Aflsuiten" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="796,200,831,471" Height="70"/>
-        <Button Content="Nakijken" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="796,300,831,406" Height="70"/>
+        <Button Content="Volgende vraag" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="0,0,0,0" Height="70"/>
+        <Button Content="Vorige vraag" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="0,150,0,0" Height="70"/>
+        <Button Name="Aflsuiten" Content="Aflsuiten" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="0,300,0,0" Height="70"/>
+        <Button Content="Nakijken" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="0,450,0,0" Height="70"/>
 
     </Grid>
 </Window>

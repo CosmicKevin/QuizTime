@@ -13,7 +13,7 @@
                       Margin="14, 55, 0, 46" Width="1350" ItemsSource="{Binding Path=LoadDataBinding}" CanUserResizeRows="False" CanUserAddRows="False">
 
                 <DataGrid.Columns>
-                    <DataGridTextColumn Binding="{Binding Path=Quiz_ID}" Header="Quiz" Width="50" IsReadOnly="True" />
+                    <DataGridTextColumn Binding="{Binding Path=ID}" Header="Quiz" Width="50" IsReadOnly="True" />
                     <DataGridTextColumn Binding="{Binding Path=QuizNaam}" Header="Naam" Width="250" IsReadOnly="True" />
 
                     <DataGridTemplateColumn Width="50">
