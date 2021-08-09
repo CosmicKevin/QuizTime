@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -30,6 +31,21 @@ namespace QuizTime
             Next.Click += Next_Click;
             Cancel.Click += Cancel_Click;
             Save.Click += Save_Click;
+            toevoegen.Click += Toevoegen_Click;
+        }
+
+        private void Toevoegen_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dlg = new OpenFileDialog();
+            dlg.InitialDirectory = "c:\\";
+            dlg.Filter = "Image files (*.jpg)|*.jpg|All Files (*.*)|*.*";
+            dlg.RestoreDirectory = true;
+
+            if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                string selectedFileName = dlg.FileName;
+                imgpath.Text = selectedFileName;
+            }
         }
 
         private void Next_Click(object sender, RoutedEventArgs e)
@@ -54,6 +70,7 @@ namespace QuizTime
             antb.Text = null;
             antc.Text = null;
             antd.Text = null;
+            imgpath.Text = null;
             seconden.Text = "30";
         }
 
@@ -73,7 +90,7 @@ namespace QuizTime
             else
             {
                 /*quiz.Update();*/
-                MessageBox.Show("Ik ga updaten");
+                System.Windows.MessageBox.Show("Ik ga updaten");
             }
             MainWindow window = new MainWindow();
             window.Show();

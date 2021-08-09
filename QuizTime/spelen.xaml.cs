@@ -25,19 +25,18 @@ namespace QuizTime
         public event EventHandler TimerReady;
 
         private int time;
-        private DispatcherTimer timer;
-
+        private System.Threading.Timer timer;
         public spelen()
         {
             InitializeComponent();
-
-            timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(1000);
-            timer.Tick += Timer_Tick;
         }
         public void LoadAntwoorden(Antwoord antwoord)
         {
-            timer.Stop();
+            if (timer != null)
+            {
+                timer.Change(Timeout.Infinite, Timeout.Infinite);
+                timer.Dispose();
+            }
 
             anta.Text = antwoord.AntwoordA;
             antb.Text = antwoord.AntwoordB;
@@ -46,23 +45,48 @@ namespace QuizTime
             titel.Text = antwoord.Vraag;
             tijd.Content = antwoord.Tijd;
 
+            try
+            {
+                BitmapImage bitmap = new BitmapImage();
+                bitmap.BeginInit();
+                bitmap.UriSource = new Uri(antwoord.Image);
+                bitmap.EndInit();
+                plaatje.Source = bitmap;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Er is geen plaatje: " + ex.Message);
+            }
             time = Convert.ToInt32(tijd.Content);
-
-            timer.Start();
+            timer = new Timer(new TimerCallback(TickTimer), null, 1000, 1000);
 
         }
 
-        private void Timer_Tick(object sender, EventArgs e)
+        void TickTimer(object state)
         {
-            time--;
+            UpdateTimerVeld();
+        }
 
-            tijd.Content = time.ToString();
+        private void UpdateTimerVeld()
+        {
+            if (!Dispatcher.CheckAccess())
+            {
+                // We're not in the UI thread, ask the dispatcher to call this same method in the UI thread, then exit
+                Dispatcher.BeginInvoke(new Action(UpdateTimerVeld));
+                return;
+            }
+
+            // We're in the UI thread, update the controls
+            time--;
+            tijd.Content = time;
 
             if (time == 0)
             {
-                timer.Stop();
-               
-                if(TimerReady != null)
+                timer.Change(Timeout.Infinite, Timeout.Infinite);
+                timer.Dispose();
+                timer = null;
+
+                if (TimerReady != null)
                 {
                     TimerReady(this, EventArgs.Empty);
                 }

@@ -10,7 +10,7 @@
         <Button Name="Volgende" Content="Volgende vraag" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="0,0,0,0" Height="70"/>
         <Button Name="Vorige"  Content="Vorige vraag" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="0,150,0,0" Height="70"/>
         <Button Name="Aflsuiten" Content="Aflsuiten" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="0,300,0,0" Height="70"/>
-        <Button Content="Nakijken" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="0,450,0,0" Height="70"/>
+        <Button Name="Nakijken" Content="Nakijken" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="0,450,0,0" Height="70"/>
 
     </Grid>
 </Window>

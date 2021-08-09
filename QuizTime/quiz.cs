@@ -58,8 +58,11 @@ namespace QuizTime
 
             for (int i = 0; i < quizData.Count; i++)
             {
+                var img = quizData[i].Image;
+                img = img.Replace(@"\", @"\\");
+
                 string SQL = string.Format("INSERT INTO quiztime.vraag (Vraag, Image, AntwoordA, AntwoordB, AntwoordC, AntwoordD, GoedAntwoord, Timer, Quiz_ID) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}',{8})",
-                          quizData[i].Vraag, quizData[i].Image, quizData[i].AntwoordA, quizData[i].AntwoordB, quizData[i].AntwoordC, quizData[i].AntwoordD, quizData[i].GoedAntwoord, quizData[i].Timer.ToString(), rowId);
+                          quizData[i].Vraag, img, quizData[i].AntwoordA, quizData[i].AntwoordB, quizData[i].AntwoordC, quizData[i].AntwoordD, quizData[i].GoedAntwoord, quizData[i].Timer.ToString(), rowId);
                 sql.ExecuteNonQuery(SQL);
             }
 

@@ -43,6 +43,12 @@ namespace QuizTime
             Volgende.Click += Volgende_Click;
             Vorige.Click += Vorige_Click;
             Aflsuiten.Click += Aflsuiten_Click;
+            Nakijken.Click += Nakijken_Click;
+        }
+
+        private void Nakijken_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.MessageBox.Show(quizData[currentIndex].GoedAntwoord);
         }
 
         private void Game_TimerReady(object sender, EventArgs e)
@@ -76,7 +82,7 @@ namespace QuizTime
         {
             var antwoorden = quizData[currentIndex];
 
-            var antwoord = new Antwoord(antwoorden.Vraag, antwoorden.AntwoordA, antwoorden.AntwoordB, antwoorden.AntwoordC, antwoorden.AntwoordD, antwoorden.Timer);
+            var antwoord = new Antwoord(antwoorden.Vraag, antwoorden.AntwoordA, antwoorden.AntwoordB, antwoorden.AntwoordC, antwoorden.AntwoordD, antwoorden.Image, antwoorden.Timer);
             game.LoadAntwoorden(antwoord);
         }
 
