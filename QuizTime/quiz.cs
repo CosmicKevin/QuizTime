@@ -23,6 +23,18 @@ namespace QuizTime
         private string _GoedAntwoord;
         private Int32 _Timer;
 
+        public enum EditModes
+        {
+            Add,
+            Edit
+        };
+
+        private static EditModes editMode;
+        public EditModes EditMode
+        {
+            get { return editMode; }
+            set { editMode = value; }
+        }
         public Int32 Quiz_ID
         {
             get { return _Quiz_ID; }
@@ -70,18 +82,19 @@ namespace QuizTime
             get { return _AntwoordD; }
             set { _AntwoordD = value; }
         }
-        public string GoedAntwoord
-        {
-            get { return _GoedAntwoord; }
-            set { _GoedAntwoord = value; }
-        }
         public Int32 Timer
         {
             get { return _Timer; }
             set { _Timer = value; }
         }
+        public string GoedAntwoord
+        {
+            get { return _GoedAntwoord; }
+            set { _GoedAntwoord = value; }
+        }
 
-        database sql = new database();
+
+        private database sql = new database();
 
         public DataSet GetData()
         {
@@ -90,14 +103,28 @@ namespace QuizTime
             return sql.GetDataSet(SQL);
         }
 
-        public void Create(string titelvdvraag, string Image, string AntwoordA, string AntwoordB, string AntwoordC, string AntwoordD, string GoedAntwoord, string Timer, string QuizNaam)
+        public void CreateQuiz(string QuizNaam)
         {
-            string SQL = string.Format("INSERT INTO quiztime.vraag (Vraag, Image, AntwoordA, AntwoordB, AntwoordC, AntwoordD, GoedAntwoord, Timer) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
-                         titelvdvraag, Image, AntwoordA, AntwoordB, AntwoordC, AntwoordD, GoedAntwoord, Timer);
+            string SQLQ = string.Format("INSERT INTO quiztime.quiz (QuizNaam) VALUES ('{0}')", QuizNaam);
 
-            string SQLQ = string.Format("INSERT INTO quiztime.quiz (quiznaam) VALUES ('{0}')", QuizNaam);
-            sql.ExecuteNonQuery(SQL);
             sql.ExecuteNonQuery(SQLQ);
+        }
+        public void CreateVragen(List<List<quiz>> listVragen)
+        {
+            int rowId = sql.ExecuteGetRowId();
+
+            for (int i = 0; i < listVragen.Count; i++)
+            {
+                string SQL = string.Format("INSERT INTO quiztime.vraag (Vraag, Image, AntwoordA, AntwoordB, AntwoordC, AntwoordD, GoedAntwoord, Timer, Quiz_ID) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}',{8})",
+                          listVragen[i][0].Vraag, listVragen[i][0].image, listVragen[i][0].AntwoordA, listVragen[i][0].AntwoordB, listVragen[i][0].AntwoordC, listVragen[i][0].AntwoordD, listVragen[i][0].GoedAntwoord, listVragen[i][0].Timer.ToString(), rowId);
+                sql.ExecuteNonQuery(SQL);
+            }
+        }
+
+        public void spelen(Int32 Quiz_ID)
+        {
+            string SQL = string.Format("SELECT vraag.Vraag, vraag.Image, vraag.AntwoordA, vraag.AntwoordB, vraag.AntwoordC, vraag.AntwoordD, vraag.GoedAntwoord, vraag.Timer, vraag.Quiz_ID, quiz.QuizNaam FROM vraag INNER JOIN quiz ON vraag.Quiz_ID = quiz.ID WHERE Quiz_ID = {0}", Quiz_ID);
+
         }
         public void Read(Int32 Quiz_ID)
         {
@@ -112,7 +139,7 @@ namespace QuizTime
             _AntwoordD = datatable.Rows[0]["AntwoordD"].ToString();
             _GoedAntwoord = datatable.Rows[0]["GoedAntwoord"].ToString();
             _Timer = Convert.ToInt32(datatable.Rows[0]["Timer"].ToString());
-            _QuizNaam = datatable.Rows[0]["QuizNaam"].ToString();
+            _QuizNaam = datatable.Rows[0]["QuizNaam"].ToString();            
         }
         public void Update(Int32 Quiz_ID, string titelvdvraag, string Image, string AntwoordA, string AntwoordB, string AntwoordC, string AntwoordD, string GoedAntwoord, string Timer, string QuizNaam)
         {
@@ -125,8 +152,7 @@ namespace QuizTime
                                         "AntwoordD          = '{5}', " +
                                         "GoedAntwoord       = '{6}', " +
                                         "Timer              = '{7}', " +
-                                        "QuizNaam           = '{8}', " +
-                                        "WHERE QuizID       = '{9}'", titelvdvraag,
+                                        "WHERE QuizID       = '{8}'", titelvdvraag,
                                                                       Image,
                                                                       AntwoordA,
                                                                       AntwoordB,
@@ -134,7 +160,6 @@ namespace QuizTime
                                                                       AntwoordD,
                                                                       GoedAntwoord,
                                                                       Timer,
-                                                                      QuizNaam,
                                                                       Quiz_ID);
             sql.ExecuteNonQuery(SQL);
         }
@@ -143,8 +168,13 @@ namespace QuizTime
             bool isDeleted = false;
             if (MessageBox.Show("Wilt u deze quiz verwijderen?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
             {
-                string SQL = string.Format("DELETE FROM quiztime.vraag WHERE Quiz_ID = {0}", Quiz_ID);
+
+                string SQLQ = string.Format("DELETE FROM quiztime.vraag WHERE Quiz_ID = {0}", Quiz_ID);
+                string SQL = string.Format("DELETE FROM quiztime.quiz WHERE ID = {0}", Quiz_ID);
+
+                sql.ExecuteNonQuery(SQLQ);
                 sql.ExecuteNonQuery(SQL);
+
                 isDeleted = true;
 
                 MessageBox.Show("De quiz is succesvol verwijderd");

@@ -111,6 +111,13 @@
     <Compile Include="spelenbedienen.xaml.cs">
       <DependentUpon>spelenbedienen.xaml</DependentUpon>
     </Compile>
+    <Compile Include="vraag.cs" />
+    <Compile Include="vraagEdit.xaml.cs">
+      <DependentUpon>vraagEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="vraagGrid.xaml.cs">
+      <DependentUpon>vraagGrid.xaml</DependentUpon>
+    </Compile>
     <Page Include="aanmaken.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -135,6 +142,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="spelenbedienen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vraagEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="vraagGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -23,11 +23,14 @@ namespace QuizTime
                 MySqlCommand cmd = new MySqlCommand(SQL, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                 adp.Fill(dataset, "LoadDataBinding");
-                conn.Close();
             }
             catch (MySqlException ex)
             {
                 System.Windows.MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
             }
 
             return dataset;
@@ -43,11 +46,14 @@ namespace QuizTime
                 MySqlCommand cmd = new MySqlCommand(SQL, conn);
                 MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
                 adp.Fill(datatable);
-                conn.Close();
             }
             catch (MySqlException ex)
             {
                 System.Windows.MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
             }
 
             return datatable;
@@ -60,12 +66,36 @@ namespace QuizTime
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(SQL, conn);
                 cmd.ExecuteNonQuery();
-                conn.Close();
             }
             catch (MySqlException ex)
             {
                 System.Windows.MessageBox.Show(ex.ToString());
             }
+            finally
+            {
+                conn.Close();
+            }
         }
+
+        public int ExecuteGetRowId()
+        {
+            int rowId = -1;
+            try
+            {
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand("SELECT LAST_INSERT_ID()", conn);
+                rowId = Convert.ToInt32(cmd.ExecuteScalar());
+            }
+            catch (MySqlException ex)
+            {
+                System.Windows.MessageBox.Show(ex.ToString());
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return rowId;
+        }
+
     }
 }

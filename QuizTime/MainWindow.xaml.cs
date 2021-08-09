@@ -22,6 +22,7 @@ namespace QuizTime
     public partial class MainWindow : Window
     {
         quiz quiz = new quiz();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -29,10 +30,12 @@ namespace QuizTime
             dgQuizes.DataContext = quiz.GetData();
 
             btnAdd.Click += BtnAdd_Click;
+
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
+            quiz.EditMode = quiz.EditModes.Add;
             aanmaken window = new aanmaken();
             window.Show();
             this.Close();
@@ -42,6 +45,7 @@ namespace QuizTime
         {
             try
             {
+                quiz.EditMode = quiz.EditModes.Edit;
                 object item = dgQuizes.SelectedItem;
                 int Quiz_ID = int.Parse((dgQuizes.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
 
@@ -81,6 +85,17 @@ namespace QuizTime
             int Quiz_ID = int.Parse((dgQuizes.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
 
             spelenbedienen window = new spelenbedienen(Quiz_ID);
+
+            window.Show();
+            this.Close();
+        }
+
+        private void btnQuestion_Click(object sender, RoutedEventArgs e)
+        {
+            object item = dgQuizes.SelectedItem;
+            int Quiz_ID = int.Parse((dgQuizes.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
+            
+            vraagGrid window = new vraagGrid(Quiz_ID);
 
             window.Show();
             this.Close();

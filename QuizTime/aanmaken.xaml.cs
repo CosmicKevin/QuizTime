@@ -92,6 +92,11 @@ namespace QuizTime
             listVragen.Add(question);
 
             titelvdvraag.Text = null;
+            anta.Text = null;
+            antb.Text = null;
+            antc.Text = null;
+            antd.Text = null;
+            seconden.Text = "30";
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
@@ -102,13 +107,19 @@ namespace QuizTime
         }
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < listVragen.Count; i++)
+            if (quiz.EditMode == quiz.EditModes.Add)
             {
-                quiz.Create(
-                    
-                    listVragen[i][0].Vraag, listVragen[i][0].image, listVragen[i][0].AntwoordA, listVragen[i][0].AntwoordB, listVragen[i][0].AntwoordC, listVragen[i][0].AntwoordD, listVragen[i][0].GoedAntwoord, listVragen[i][0].Timer.ToString(), listVragen[i][0].QuizNaam);
+                quiz.CreateQuiz(listVragen[0][0].QuizNaam);
+                quiz.CreateVragen(listVragen);
             }
-
+            else
+            {
+                /*quiz.Update();*/
+                MessageBox.Show("Ik ga updaten");
+            }
+            MainWindow window = new MainWindow();
+            window.Show();
+            this.Close();
         }
     }
 }

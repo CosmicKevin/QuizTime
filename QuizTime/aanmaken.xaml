@@ -15,7 +15,7 @@
         <TextBox Name="antc" HorizontalAlignment="Left" Height="45" TextWrapping="Wrap" Text="Antwoord C" VerticalAlignment="Top" Width="125" Margin="404,228,0,0"/>
         <TextBox Name="antd" HorizontalAlignment="Left" Height="45" TextWrapping="Wrap" Text="Antwoord D" VerticalAlignment="Top" Width="125" Margin="404,287,0,0"/>
         <Label Content="Stel de tijd in: " Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="666,9,0,0"/>
-        <TextBox Name="seconden" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Sec" VerticalAlignment="Top" Width="29" Margin="757,13,0,0"/>
+        <TextBox Name="seconden" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Width="29" Margin="757,13,0,0"/>
         <Button Name="Next" Content="Volgende" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="697,253,0,0"/>
         <Button Name="Cancel" Content="Afsluiten" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="697,275,0,0"/>
         <TextBox Name="quiznaam" HorizontalAlignment="Left" Height="21" Margin="9,93,0,0" TextWrapping="Wrap" Text="QuizNaam" VerticalAlignment="Top" Width="245"/>
