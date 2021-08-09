@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 06, 2021 at 09:19 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.2
+-- Generation Time: Aug 09, 2021 at 01:09 PM
+-- Server version: 10.4.19-MariaDB
+-- PHP Version: 8.0.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -38,7 +37,7 @@ CREATE TABLE `quiz` (
 --
 
 INSERT INTO `quiz` (`ID`, `QuizNaam`) VALUES
-(1, 'Test');
+(36, 'Geld');
 
 -- --------------------------------------------------------
 
@@ -64,7 +63,8 @@ CREATE TABLE `vraag` (
 --
 
 INSERT INTO `vraag` (`ID`, `Vraag`, `Image`, `AntwoordA`, `AntwoordB`, `AntwoordC`, `AntwoordD`, `GoedAntwoord`, `Timer`, `Quiz_ID`) VALUES
-(1, 'Vraag1', 'Image1', 'AntwoordA1', 'AntwoordB1', 'AntwoordC1', 'AntwoordD1', 'AntwoordC', 120, 1);
+(44, 'Geld', 'img/img', 'Antwoord A1', 'Antwoord B1', 'Antwoord C1', 'Antwoord D1', 'AntwoordC', 70, 36),
+(46, 'Vraag1', 'Image1', 'AntwoordA1', 'AntwoordB1', 'AntwoordC1', 'AntwoordD1', 'AntwoordC', 90, 36);
 
 --
 -- Indexes for dumped tables
@@ -91,13 +91,13 @@ ALTER TABLE `vraag`
 -- AUTO_INCREMENT for table `quiz`
 --
 ALTER TABLE `quiz`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `vraag`
 --
 ALTER TABLE `vraag`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- Constraints for dumped tables
