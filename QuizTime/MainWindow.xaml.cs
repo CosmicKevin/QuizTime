@@ -49,7 +49,7 @@ namespace QuizTime
                 object item = dgQuizes.SelectedItem;
                 int Quiz_ID = int.Parse((dgQuizes.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text);
 
-                aanmaken window = new aanmaken(Quiz_ID);
+                quizEdit window = new quizEdit(Quiz_ID);
                 window.Show();
                 this.Close();
             }

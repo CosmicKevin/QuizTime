@@ -103,8 +103,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Antwoord.cs" />
     <Compile Include="database.cs" />
     <Compile Include="quiz.cs" />
+    <Compile Include="QuizData.cs" />
+    <Compile Include="quizEdit.xaml.cs">
+      <DependentUpon>quizEdit.xaml</DependentUpon>
+    </Compile>
     <Compile Include="spelen.xaml.cs">
       <DependentUpon>spelen.xaml</DependentUpon>
     </Compile>
@@ -137,6 +142,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="quizEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="spelen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -20,7 +20,8 @@ namespace QuizTime
     public partial class aanmaken : Window
     {
         quiz quiz = new quiz();
-        private List<List<quiz>> listVragen = new List<List<quiz>>();
+        List<QuizData> quizDataRows = new List<QuizData>();
+        
         public aanmaken()
         {
             InitializeComponent();
@@ -31,65 +32,22 @@ namespace QuizTime
             Save.Click += Save_Click;
         }
 
-        public aanmaken(Int32 Quiz_ID)
-        {
-            InitializeComponent();
-            quiz.Read(Quiz_ID);
-
-            Quiz_ID = quiz.Quiz_ID;
-            titelvdvraag.Text = quiz.Vraag;
-            imgpath.Text = quiz.image;
-            anta.Text = quiz.AntwoordA;
-            antb.Text = quiz.AntwoordB;
-            antc.Text = quiz.AntwoordC;
-            antd.Text = quiz.AntwoordD;
-            seconden.Text = quiz.Timer.ToString();
-            quiznaam.Text = quiz.QuizNaam;
-
-            int index = 0;
-            switch (quiz.GoedAntwoord)
-            {
-                case "AntwoordA":
-                    index = 0;
-                    break;
-
-                case "AntwoordB":
-                    index = 1;
-                    break;
-
-                case "AntwoordC":
-                    index = 2;
-                    break;
-
-                case "AntwoordD":
-                    index = 3;
-                    break;
-            }
-            Goede.SelectedIndex = index;
-
-            Next.Click += Next_Click;
-            Cancel.Click += Cancel_Click;
-            Save.Click += Save_Click;
-        }
-
         private void Next_Click(object sender, RoutedEventArgs e)
         {
-            List<quiz> question = new List<quiz>
+            var quizData = new QuizData
             {
-                        new quiz
-                        {
-                            Vraag = titelvdvraag.Text,
-                            AntwoordA = anta.Text,
-                            AntwoordB = antb.Text,
-                            AntwoordC = antc.Text,
-                            AntwoordD = antd.Text,
-                            GoedAntwoord = Goede.Text,
-                            image = imgpath.Text,
-                            QuizNaam = quiznaam.Text,
-                            Timer = Convert.ToInt32(seconden.Text)
-                        },
-                    };
-            listVragen.Add(question);
+                Vraag = titelvdvraag.Text,
+                AntwoordA = anta.Text,
+                AntwoordB = antb.Text,
+                AntwoordC = antc.Text,
+                AntwoordD = antd.Text,
+                GoedAntwoord = Goede.Text,
+                Image = imgpath.Text,
+                QuizNaam = quiznaam.Text,
+                Timer = Convert.ToInt32(seconden.Text)
+            };
+
+            quizDataRows.Add(quizData);
 
             titelvdvraag.Text = null;
             anta.Text = null;
@@ -109,8 +67,8 @@ namespace QuizTime
         {
             if (quiz.EditMode == quiz.EditModes.Add)
             {
-                quiz.CreateQuiz(listVragen[0][0].QuizNaam);
-                quiz.CreateVragen(listVragen);
+                quiz.CreateQuiz(quizDataRows[0].QuizNaam);
+                quiz.CreateVragen(quizDataRows);
             }
             else
             {
