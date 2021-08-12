@@ -5,28 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuizTime"
         mc:Ignorable="d"
-        Title="aanmaken" Height="450" Width="800">
-    <Grid Background="#FF1026EF">
-        <TextBox Name="titelvdvraag" HorizontalAlignment="Left" Height="49" TextWrapping="Wrap" Text="Titel van de vraag" VerticalAlignment="Top" Width="385" Margin="210,30,0,0" FontSize="30"/>
-        <TextBox Name="imgpath" HorizontalAlignment="Left" Height="32" IsReadOnly="True" TextWrapping="Wrap" Text="img/img" VerticalAlignment="Top" Width="231" Margin="208,125,0,0"/>
-        <Button Name="toevoegen" Content="Toevoegen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Margin="462,125,0,0" Height="32"/>
-        <TextBox Name="anta" HorizontalAlignment="Left" Height="45" TextWrapping="Wrap" Text="Antwoord A" VerticalAlignment="Top" Width="125" Margin="261,228,0,0"/>
-        <TextBox Name="antb" HorizontalAlignment="Left" Height="45" TextWrapping="Wrap" Text="Antwoord B" VerticalAlignment="Top" Width="125" Margin="261,287,0,0"/>
-        <TextBox Name="antc" HorizontalAlignment="Left" Height="45" TextWrapping="Wrap" Text="Antwoord C" VerticalAlignment="Top" Width="125" Margin="404,228,0,0"/>
-        <TextBox Name="antd" HorizontalAlignment="Left" Height="45" TextWrapping="Wrap" Text="Antwoord D" VerticalAlignment="Top" Width="125" Margin="404,287,0,0"/>
-        <Label Content="Stel de tijd in: " Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="666,9,0,0"/>
-        <TextBox Name="seconden" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Width="29" Margin="757,13,0,0"/>
-        <Button Name="Next" Content="Volgende" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="697,253,0,0"/>
-        <Button Name="Cancel" Content="Afsluiten" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="697,275,0,0"/>
-        <TextBox Name="quiznaam" HorizontalAlignment="Left" Height="21" Margin="9,93,0,0" TextWrapping="Wrap" Text="QuizNaam" VerticalAlignment="Top" Width="245"/>
+        Title="aanmaken" Height="350" Width="800" ResizeMode="NoResize">
+    <Grid Background="#1E1E7F">
+        <TextBox Name="titelvdvraag" HorizontalAlignment="Left" Height="49" TextWrapping="Wrap" Text="Titel van de vraag" VerticalAlignment="Top" Width="400" Margin="210,30,0,0" FontSize="30"/>
+        <TextBox Name="imgpath" HorizontalAlignment="Left" Height="21" IsReadOnly="True" TextWrapping="Wrap" Text="img/img" VerticalAlignment="Top" Width="369" Margin="208,121,0,0"/>
+        <Button Name="toevoegen" Content="..." HorizontalAlignment="Left" VerticalAlignment="Top" Width="28" Margin="582,120,0,0" Height="21" RenderTransformOrigin="1.536,0.429"/>
+        <TextBox Name="anta" HorizontalAlignment="Left" Height="21" TextAlignment="Center" TextWrapping="Wrap" Text="Antwoord A" VerticalAlignment="Top" Width="195" Margin="208,168,0,0"/>
+        <TextBox Name="antb" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Antwoord B" VerticalAlignment="Top" Width="195" Margin="210,205,0,0"/>
+        <TextBox Name="antc" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Antwoord C" VerticalAlignment="Top" Width="195" Margin="415,168,0,0"/>
+        <TextBox Name="antd" HorizontalAlignment="Left" Height="21" TextWrapping="Wrap" Text="Antwoord D" VerticalAlignment="Top" Width="195" Margin="415,205,0,0"/>
+        <Label Content="Stel de tijd in: " Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="636,12,0,0"/>
+        <TextBox Name="seconden" HorizontalAlignment="Left" Height="21" TextAlignment="Center" TextWrapping="Wrap" Text="30" VerticalAlignment="Top" Width="29" Margin="726,17,0,0" RenderTransformOrigin="0.414,1.095"/>
+        <Button Name="Next" Content="Volgende" HorizontalAlignment="Left" VerticalAlignment="Top" Height="21" Width="75" Margin="636,202,0,0"/>
+        <Button Name="Cancel" Content="Afsluiten" HorizontalAlignment="Left" VerticalAlignment="Top" Height="21" Width="75" Margin="636,228,0,0" RenderTransformOrigin="-0.293,2.238"/>
+        <TextBox Name="quiznaam" HorizontalAlignment="Left" Height="21" Margin="210,89,0,0" TextWrapping="Wrap" Text="QuizNaam" VerticalAlignment="Top" Width="400"/>
         <StackPanel Margin="-1,3,1,0">
-            <ComboBox Name="Goede" Height="23" Margin="610, 200 ,10, 0">
+            <ComboBox x:Name="Goede" Height="21" Margin="210,250,182,0">
                 <ComboBoxItem IsSelected="True" Content="AntwoordA"/>
                 <ComboBoxItem Content="AntwoordB"/>
                 <ComboBoxItem Content="AntwoordC"/>
                 <ComboBoxItem Content="AntwoordD"/>
             </ComboBox>
         </StackPanel>
-        <Button Name="Save" Content="Opslaan" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="697,298,0,0"/>
+        <Button Name="Save" Content="Opslaan" HorizontalAlignment="Left" VerticalAlignment="Top" Height="21" Width="75" Margin="636,254,0,0"/>
     </Grid>
 </Window>

@@ -1,17 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace QuizTime
 {
@@ -28,6 +18,7 @@ namespace QuizTime
         public spelenbedienen(int Quiz_ID)
         {
             InitializeComponent();
+
             game = new spelen();
 
             game.TimerReady += Game_TimerReady;
@@ -48,7 +39,7 @@ namespace QuizTime
 
         private void Nakijken_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.MessageBox.Show(quizData[currentIndex].GoedAntwoord);
+            game.ToonGoedAntwoord(quizData[currentIndex].GoedAntwoord);
         }
 
         private void Game_TimerReady(object sender, EventArgs e)
@@ -94,10 +85,14 @@ namespace QuizTime
 
         private void Aflsuiten_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
             window = new MainWindow();
             window.Show();
-            game.Close();
-            this.Close();
+            game.AfSluiten();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
@@ -27,6 +28,11 @@ namespace QuizTime
                 timer.Dispose();
             }
 
+            anta.Background = Brushes.Yellow;
+            antb.Background = Brushes.Yellow;
+            antc.Background = Brushes.Yellow;
+            antd.Background = Brushes.Yellow;
+
             anta.Text = antwoord.AntwoordA;
             antb.Text = antwoord.AntwoordB;
             antc.Text = antwoord.AntwoordC;
@@ -42,13 +48,45 @@ namespace QuizTime
                 bitmap.EndInit();
                 plaatje.Source = bitmap;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Er is geen plaatje: " + ex.Message);
             }
             time = Convert.ToInt32(tijd.Content);
             timer = new Timer(new TimerCallback(TickTimer), null, 1000, 1000);
 
+        }
+
+        public void ToonGoedAntwoord(string antwoord)
+        {
+            switch (antwoord)
+            {
+                case "AntwoordA":
+                    anta.Background = Brushes.Green;
+                    break;
+                case "AntwoordB":
+                    antb.Background = Brushes.Green;
+                    break;
+                case "AntwoordC":
+                    antc.Background = Brushes.Green;
+                    break;
+                case "AntwoordD":
+                    antd.Background = Brushes.Green;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        public void AfSluiten()
+        {
+            if (timer != null)
+            {
+                timer.Change(Timeout.Infinite, Timeout.Infinite);
+                timer.Dispose();
+                timer = null;
+            }
+            this.Close();
         }
 
         void TickTimer(object state)

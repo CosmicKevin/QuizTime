@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuizTime"
         mc:Ignorable="d"
-        Title="spelenbedienen" Height="1080" Width="1920" WindowStartupLocation="Manual">
+        Title="spelenbedienen" Height="440" Width="600" ResizeMode="NoResize" Closing="Window_Closing" WindowStartupLocation="Manual">
     <Grid Background="Gray">
-        <Button Name="Volgende" Content="Volgende vraag" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="0,0,0,0" Height="70"/>
-        <Button Name="Vorige"  Content="Vorige vraag" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="0,150,0,0" Height="70"/>
-        <Button Name="Aflsuiten" Content="Aflsuiten" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="0,300,0,0" Height="70"/>
-        <Button Name="Nakijken" Content="Nakijken" HorizontalAlignment="Center" VerticalAlignment="Center" Width="285" Margin="0,450,0,0" Height="70"/>
+        <Button Name="Volgende" Content="Volgende vraag" HorizontalAlignment="Center" VerticalAlignment="Top" Width="285" Margin="0,50,0,0" Height="70"/>
+        <Button Name="Vorige"  Content="Vorige vraag" HorizontalAlignment="Center" VerticalAlignment="Top" Width="285" Margin="0,130,0,0" Height="70"/>
+        <Button Name="Aflsuiten" Content="Aflsuiten" HorizontalAlignment="Center" VerticalAlignment="Top" Width="285" Margin="0,210,0,0" Height="70"/>
+        <Button Name="Nakijken" Content="Nakijken" HorizontalAlignment="Center" VerticalAlignment="Top" Width="285" Margin="0,290,0,0" Height="70"/>
 
     </Grid>
 </Window>
