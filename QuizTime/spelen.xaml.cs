@@ -28,12 +28,12 @@ namespace QuizTime
                 timer.Dispose();
             }
 
-            anta.Background = Brushes.Yellow;
+            txbanta.Background = Brushes.Yellow;
             antb.Background = Brushes.Yellow;
             antc.Background = Brushes.Yellow;
             antd.Background = Brushes.Yellow;
 
-            anta.Text = antwoord.AntwoordA;
+            txbanta.Text = antwoord.AntwoordA;
             antb.Text = antwoord.AntwoordB;
             antc.Text = antwoord.AntwoordC;
             antd.Text = antwoord.AntwoordD;
@@ -62,7 +62,7 @@ namespace QuizTime
             switch (antwoord)
             {
                 case "AntwoordA":
-                    anta.Background = Brushes.Green;
+                    txbanta.Background = Brushes.Green;
                     break;
                 case "AntwoordB":
                     antb.Background = Brushes.Green;

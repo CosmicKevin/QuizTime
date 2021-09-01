@@ -9,14 +9,17 @@
         WindowStyle="None"
         Title="spelen" Height="1080" Width="1920">
     <Grid Background="#1E1E7F" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <TextBox x:Name="anta" Background="Yellow" Margin="636,0,961,276" Height="120" TextWrapping="Wrap" FontSize="25" Text="Antwoord A" VerticalAlignment="Bottom" Width="315" />
-        <TextBox x:Name="antb" Background="Yellow" Margin="971,0,626,276" Height="120" TextWrapping="Wrap" FontSize="25" Text="Antwoord B" VerticalAlignment="Bottom" Width="315" />
-        <TextBox x:Name="antc" Background="Yellow" Margin="636,0,962,130" Height="120" TextWrapping="Wrap" FontSize="25" Text="Antwoord C" VerticalAlignment="Bottom" Width="315" />
-        <TextBox x:Name="antd" Background="Yellow" Margin="971,0,626,130" Height="120" TextWrapping="Wrap" FontSize="25" Text="Antwoord D" VerticalAlignment="Bottom" Width="315"  />
+
         <TextBlock x:Name="titel" HorizontalAlignment="Center" TextAlignment="Center" Height="143" Foreground="White" TextWrapping="Wrap" Text="Titel van de vraag" VerticalAlignment="Top" Width="510" FontSize="58" Margin="0,0,0,0"/>
-        <Label Content="U heeft nog: " Margin="0,0,153,938" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="126" Width="258" FontSize="38"/>
-        <Label Name="tijd" Content="0:30" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="163" Height="126" Margin="0,20,0,0" FontSize="38"/>
-        <Image Name="plaatje" Height="480" VerticalAlignment="Top" Width="640" Margin="0,160,0,0" />
+        <Label Content="U heeft nog: " Margin="0,15,152.6,0" Foreground="White" HorizontalAlignment="Right" Width="258" FontSize="38" Height="126" VerticalAlignment="Top"/>
+        <Label x:Name="tijd" Content="0:30" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Top" Width="163" Height="126" Margin="0,20,0,0" FontSize="38"/>
+        <Image x:Name="plaatje" Margin="638,148,635.6,0" Height="480" VerticalAlignment="Top" />
+        <Grid Margin="350,0,350,-28.4" Height="495" VerticalAlignment="Bottom">
+            <TextBox x:Name="txbanta" Background="Yellow" Margin="80,100,0,0" TextWrapping="Wrap" FontSize="25" Text="Antwoord A" Width="315" HorizontalAlignment="Left" Height="121" VerticalAlignment="Top" />
+            <TextBox x:Name="antb" Background="Yellow" Margin="0,100,80,0" TextWrapping="Wrap" FontSize="25" Text="Antwoord B" Width="315" HorizontalAlignment="Right" Height="120" VerticalAlignment="Top" />
+            <TextBox x:Name="antc" Background="Yellow" Margin="80,0,0,110" Height="120" TextWrapping="Wrap" FontSize="25" Text="Antwoord C" VerticalAlignment="Bottom" Width="315" HorizontalAlignment="Left" />
+            <TextBox x:Name="antd" Background="Yellow" Margin="0,0,80,110" Height="120" TextWrapping="Wrap" FontSize="25" Text="Antwoord D" VerticalAlignment="Bottom" Width="315" HorizontalAlignment="Right"  />
+        </Grid>
 
     </Grid>
 </Window>
